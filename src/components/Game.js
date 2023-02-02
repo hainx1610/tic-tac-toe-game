@@ -8,8 +8,7 @@ function Game() {
 
   //Declaring a Winner
   useEffect(() => {
-    const newWinner = calculateWinner(squares);
-    setWinner(newWinner);
+    setWinner(calculateWinner(squares));
   }, [squares]);
 
   //function to check if a player has won.
@@ -41,6 +40,7 @@ function Game() {
 
   //Handle player
   const handleClick = (i) => {
+    // cant directly change squares value, so use tempSquares then setSquares
     const tempSquares = squares.slice();
 
     // end func if theres a winner
@@ -54,6 +54,8 @@ function Game() {
     setSquares(tempSquares);
 
     setXIsNext((value) => !value);
+    console.log(squares);
+    console.log(winner);
   };
 
   //Restart game
